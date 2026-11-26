@@ -106,7 +106,7 @@ const fillId = (html, id, inner) => html.replace(new RegExp(`(id="${id}"[^>]*>)(
 
 for (const [file, meta] of Object.entries(ROOT_PAGES)) {
   let h = fs.readFileSync(path.join(ROOT, file), "utf8");
-  h = h.replace("</head>", '<meta name="robots" content="noindex,nofollow,noarchive">\n</head>');\n  h = h.replace("</head>", seo({ url: meta.url, extra: meta.extra || "" }) + "\n</head>");
+  h = h.replace("</head>", seo({ url: meta.url, extra: meta.extra || "" }) + "\n</head>");
   h = h.replace(/<header id="site-header"( data-dark)?><\/header>/, (_, d) => `<header id="site-header" class="header${d ? " on-dark" : ""}"${d || ""}>${R.header(meta.page)}</header>`);
   h = h.replace('<footer id="site-footer"></footer>', `<footer id="site-footer" class="footer">${R.footer()}</footer>`);
   h = fillId(h, "ring-track", R.ring());
