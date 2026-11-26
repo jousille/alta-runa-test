@@ -69,7 +69,7 @@
       <div class="wrap">
         <div class="footer__top">
           <div>
-            <a href="${u("index.html")}" class="logo logo--brand"><span>ALTA RUNA</span><small>ALTARUNA.RU</small></a>
+            <a href="${u("index.html")}" class="logo logo--brand"><span>ALTA RUNA</span></a>
             <p>Украшения ручной работы с рунами и натуральными камнями. Карты таро для тех, кто ищет свой язык символов.</p>
           </div>
           <div>
