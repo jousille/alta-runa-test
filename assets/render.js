@@ -46,7 +46,7 @@
       const link = (href, text, key) => `<a href="${href}"${page === key ? ' class="active"' : ""}>${text}</a>`;
       return `
       <div class="wrap header__in">
-        <a href="${u("index.html")}" class="logo logo--brand" aria-label="ALTA RUNA" aria-label="ALTA RUNA"><img src="${u("assets/logo.svg")}" alt="ALTA RUNA"><span class="logo-mirra" aria-hidden="true">ALTA RUNA</span></a>
+        <a href="${u("index.html")}" class="logo logo--brand" aria-label="ALTA RUNA"><img src="${u("assets/logo.svg")}" alt="ALTA RUNA"></a>
         <nav class="nav" id="nav">
           ${link(u("index.html"), "Главная", "home")}
           ${link(u("shop.html"), "Купить", "shop")}
@@ -69,7 +69,7 @@
       <div class="wrap">
         <div class="footer__top">
           <div>
-            <a href="${u("index.html")}" class="logo logo--brand"><img src="${u("assets/logo-full.svg")}" alt="ALTA RUNA"><span class="logo-mirra" aria-hidden="true">ALTA RUNA<small>ALTARUNA.RU</small></span></a>
+            <a href="${u("index.html")}" class="logo logo--brand"><img src="${u("assets/logo-full.svg")}" alt="ALTA RUNA"></a>
             <p>Украшения ручной работы с рунами и натуральными камнями. Карты таро для тех, кто ищет свой язык символов.</p>
           </div>
           <div>
@@ -221,4 +221,4 @@
   root.AltaRender = AltaRender;
 })(typeof window !== "undefined" ? window : globalThis);
 
-if (typeof document !== 'undefined' && document.fonts) { document.fonts.load('32px MirraLocal').then(f => { if(f.length && f.some(x=>x.status==='loaded')) document.documentElement.classList.add('mirra-ready'); }).catch(()=>{}); }
+
