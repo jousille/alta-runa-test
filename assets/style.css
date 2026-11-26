@@ -17,7 +17,7 @@
   --wrap:1200px;
   --serif:"Prata", Georgia, serif;
   --sans:"Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --rune:"Noto Sans Runic", "Segoe UI Historic", "Segoe UI Symbol", serif;
+  --rune:"BabelStone Elder","Noto Sans Runic","Segoe UI Historic","Segoe UI Symbol",serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -400,3 +400,7 @@ a{color:inherit;text-decoration:none}
 .footer .logo--brand{display:inline-flex;flex-direction:column;gap:8px;font-size:36px}
 .logo--brand small{font-family:var(--sans);font-size:9px;letter-spacing:.14em;font-weight:400}
 @media(max-width:560px){.header .logo--brand{font-size:26px;letter-spacing:.08em}}
+
+/* Elder Futhark web font trial */
+@font-face{font-family:"BabelStone Elder";src:url("https://www.babelstone.co.uk/Fonts/WOFF/BabelStoneRunicElderFuthark.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+.footer .logo--brand{gap:0}
