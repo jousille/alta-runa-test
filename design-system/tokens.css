@@ -55,7 +55,9 @@
   --copper-deep:#44200F;
   --font-serif:"Prata", Georgia, serif;
   --font-sans:"Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-rune:"Noto Sans Runic", "Segoe UI Historic", "Segoe UI Symbol", serif;
+  --font-rune:"BabelStone Elder", "Noto Sans Runic", "Segoe UI Historic", "Segoe UI Symbol", serif;
+  --font-logo:"Italiana", Georgia, serif;
+  --brand-logo:#2F0544;
   --gutter:20px;
   --nav-gap:28px;
   --block-pad:40px;
