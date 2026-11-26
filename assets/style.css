@@ -402,5 +402,5 @@ a{color:inherit;text-decoration:none}
 @media(max-width:560px){.header .logo--brand{font-size:26px;letter-spacing:.08em}}
 
 /* Elder Futhark web font trial */
-@font-face{font-family:"BabelStone Elder";src:url("https://www.babelstone.co.uk/Fonts/WOFF/BabelStoneRunicElderFuthark.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"BabelStone Elder";src:url("./BabelStoneRunicElderFuthark.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
 .footer .logo--brand{gap:0}
