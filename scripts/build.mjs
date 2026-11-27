@@ -78,9 +78,6 @@ function headTag({ title, desc, base }) {
 <meta property="og:description" content="${esc(desc)}">
 <meta name="theme-color" content="#2B1D3C">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232B1D3C'/><text x='50' y='72' font-size='64' text-anchor='middle' fill='%23C9AEE0'>ᚱ</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prata&family=Onest:wght@400;500;600;700&family=Noto+Sans+Runic&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${base}assets/style.css">
 </head>`;
 }
