@@ -13,15 +13,27 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232B1D3C'/><text x='50' y='72' font-size='64' text-anchor='middle' fill='%23C9AEE0'>ᚱ</text></svg>">
 <link rel="stylesheet" href="assets/style.css">
 <style>
-.hero--experiment .hero__in{align-items:center;gap:clamp(24px,5vw,76px)}
-.hero-jewel{margin:0;position:relative;min-width:0;width:100%;max-width:580px;justify-self:end}
-.hero-jewel img{display:block;width:100%;aspect-ratio:auto;object-fit:contain;max-height:660px;border-radius:18px}
-.hero-jewel figcaption{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-2);margin-top:14px;text-align:right}
-@media(max-width:760px){.hero-jewel{justify-self:center;max-width:480px}.hero-jewel img{aspect-ratio:auto;max-height:none}}
+.hero--experiment{background:#f4eaf0;color:#2a1f35;overflow:hidden;position:relative;padding:0}
+.hero--experiment .hero__in{width:100%;max-width:none;margin:0;padding:0;display:grid;grid-template-columns:46% 54%;gap:0;min-height:650px;align-items:stretch}
+.hero--experiment .hero__in>div:first-child{padding:clamp(40px,7vw,120px) clamp(28px,5vw,80px);display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero--experiment h1{color:#2a1f35;font-size:clamp(44px,5.2vw,86px);line-height:1.12;margin:24px 0}
+.hero--experiment h1 em{color:#795d88}
+.hero--experiment p{color:#6e6078;max-width:380px}
+.hero--experiment .eyebrow{color:#795d88;letter-spacing:.2em}
+.hero--experiment .hero__cta{margin-top:30px}
+.hero--experiment .btn--accent{background:#392647;color:#fff;border-color:#392647}
+.hero--experiment .btn--ghost{color:#392647;border-color:#a58da9}
+.hero-jewel{margin:0;position:relative;width:100%;min-width:0;min-height:650px;overflow:hidden}
+.hero-jewel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 53%;border-radius:0}
+.hero-jewel:after{content:"ALTA RUNA  /  01";position:absolute;bottom:24px;right:28px;color:#392647;background:#f9f2f6dc;padding:10px 15px;font-size:10px;letter-spacing:.22em}
+.hero-editorial-mark{display:flex;align-items:center;gap:15px;color:#795d88;margin-top:42px;font-size:11px;letter-spacing:.15em;text-transform:uppercase}
+.hero-editorial-mark:before{content:"";width:48px;height:1px;background:#a58da9}
+.hero-editorial-mark .rune{font-size:25px}
+@media(max-width:760px){.hero--experiment .hero__in{grid-template-columns:1fr;min-height:0}.hero--experiment .hero__in>div:first-child{padding:48px 25px 38px}.hero-jewel{min-height:0;aspect-ratio:4/4.5}.hero--experiment h1{font-size:clamp(40px,10vw,64px)}.hero-editorial-mark{margin-top:25px}}
 </style>
 </head>
 <body data-page="home">
-<header id="site-header" data-dark></header>
+<header id="site-header"></header>
 
 <section class="hero hero--experiment">
   <div class="wrap hero__in">
@@ -33,6 +45,7 @@
         <a href="shop.html" class="btn btn--accent">Выбрать украшение</a>
         <a href="articles.html" class="btn btn--ghost">Читать о рунах</a>
       </div>
+      <div class="hero-editorial-mark"><span class="rune">ᛁ</span> Символы. Камни. Смысл.</div>
     </div>
     <figure class="hero-jewel"><img src="images/hero-brand.jpg" alt="Украшение ALTA RUNA и фирменная упаковка"></figure>
   </div>
