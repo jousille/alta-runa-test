@@ -35,6 +35,36 @@
   document.querySelectorAll("[data-guide-full]").forEach((a) => (a.href = CFG.GUIDE_FULL_URL || CFG.AVITO_URL || "#"));
   document.querySelectorAll("[data-avito]").forEach((a) => (a.href = CFG.AVITO_URL || "#"));
 
+  /* ---------- Analytics: production only ---------- */
+  const analyticsHost = location.hostname === "altaruna.ru";
+  const counter = 114716597;
+  if (analyticsHost) {
+    window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments); };
+    window.ym.l = Date.now();
+    const tag = document.createElement("script");
+    tag.async = true;
+    tag.src = "https://mc.yandex.ru/metrika/tag.js?id=" + counter;
+    document.head.appendChild(tag);
+    window.ym(counter, "init", {ssr:true, webvisor:false, clickmap:false, accurateTrackBounce:true, trackLinks:true});
+  }
+  function goal(name) {
+    if (analyticsHost && typeof window.ym === "function") window.ym(counter, "reachGoal", name);
+  }
+  document.addEventListener("click", (event) => {
+    const a = event.target.closest("a[href]");
+    if (!a) return;
+    if (a.hasAttribute("data-guide-free")) {
+      goal("guide_download");
+      goal(page === "home" ? "guide_download_home" : "guide_download_page");
+      return;
+    }
+    const u = new URL(a.href, location.href);
+    if (u.hostname === "avito.ru" || u.hostname.endsWith(".avito.ru")) {
+      if (u.pathname !== "/") goal("avito_click");
+    } else if (u.hostname === "t.me" && u.pathname !== "/") goal("telegram_click");
+    else if (u.origin === location.origin && u.pathname.endsWith("/shop.html")) goal("catalog_click");
+  });
+
   /* ---------- Фильтры каталога и статей ---------- */
   function setupFilter(listEl, filtersEl, items, cats, cardFn) {
     if (!listEl || !filtersEl) return;
