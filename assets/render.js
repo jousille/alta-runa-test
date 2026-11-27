@@ -86,10 +86,14 @@
             <h4>Мы на связи</h4>
             <ul>${social}<li><a href="mailto:altaruna@yandex.ru">altaruna@yandex.ru</a></li></ul>
           </div>
+          <div class="footer__documents">
+            <h4>Документы</h4>
+            <ul><li><a href="${u("privacy.html")}">Политика конфиденциальности</a></li><li><a href="${u("terms.html")}">Пользовательское соглашение</a></li><li><a href="${u("consent.html")}">Согласие на обработку данных</a></li><li><button type="button" data-cookie-settings>Настройки cookies</button></li></ul>
+          </div>
         </div>
         <div class="footer__bot">
           <span>© ${new Date().getFullYear()} Alta Runa. Все украшения сделаны вручную.</span>
-          <div class="footer-legal"><a href="${u("privacy.html")}">Политика конфиденциальности</a><a href="${u("terms.html")}">Пользовательское соглашение</a><a href="${u("consent.html")}">Согласие на обработку данных</a><button type="button" data-cookie-settings>Настройки cookies</button></div><span class="rune">ᚨᛚᛏᚨ ᚱᚢᚾᚨ</span>
+          <span class="rune">ᚨᛚᛏᚨ ᚱᚢᚾᚨ</span>
         </div>
       </div>`;
     }
