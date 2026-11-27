@@ -84,12 +84,12 @@
           </div>
           <div>
             <h4>Мы на связи</h4>
-            <ul>${social}</ul>
+            <ul>${social}<li><a href="mailto:altaruna@yandex.ru">altaruna@yandex.ru</a></li></ul>
           </div>
         </div>
         <div class="footer__bot">
           <span>© ${new Date().getFullYear()} Alta Runa. Все украшения сделаны вручную.</span>
-          <div class="footer-legal"><a href="${u("privacy.html")}">Политика конфиденциальности</a><a href="${u("cookies.html")}">Cookies</a><button type="button" data-cookie-settings>Настройки cookies</button></div><span class="rune">ᚨᛚᛏᚨ ᚱᚢᚾᚨ</span>
+          <div class="footer-legal"><a href="${u("privacy.html")}">Политика конфиденциальности</a><button type="button" data-cookie-settings>Настройки cookies</button></div><span class="rune">ᚨᛚᛏᚨ ᚱᚢᚾᚨ</span>
         </div>
       </div>`;
     }

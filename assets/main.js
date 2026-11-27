@@ -58,7 +58,7 @@
   banner.className = "cookie-notice";
   banner.setAttribute("aria-label", "Настройки cookies");
   banner.hidden = true;
-  banner.innerHTML = `<h2>Использование cookies</h2><p>С вашего согласия мы используем Яндекс Метрику для анализа посещений и улучшения сайта.</p><a href="${R.img("cookies.html")}">Подробнее об использовании cookies</a><div class="cookie-actions"><button type="button" class="btn btn--ghost" data-consent="no">Отклонить</button><button type="button" class="btn btn--accent" data-consent="yes">Принять</button></div>`;
+  banner.innerHTML = `<h2>Использование cookies</h2><p>С вашего согласия мы используем Яндекс Метрику для анализа посещений и улучшения сайта.</p><a href="${R.img("privacy.html#cookies")}">Политика конфиденциальности и cookies</a><div class="cookie-actions"><button type="button" class="btn btn--ghost" data-consent="no">Отклонить</button><button type="button" class="btn btn--accent" data-consent="yes">Принять</button></div>`;
   body.appendChild(banner);
   banner.hidden = consent === "yes" || consent === "no";
   document.querySelectorAll("[data-cookie-settings]").forEach(el => el.addEventListener("click", () => { banner.hidden = false; banner.querySelector("button").focus(); }));
