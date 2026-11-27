@@ -100,7 +100,9 @@ const ROOT_PAGES = {
   "index.html": { page: "home", url: SITE + "/", extra: ld({ "@context": "https://schema.org", "@graph": [ORG, { "@type": "WebSite", name: "Alta Runa", url: SITE + "/", inLanguage: "ru" }] }) },
   "shop.html": { page: "shop", url: SITE + "/shop.html" },
   "articles.html": { page: "articles", url: SITE + "/articles.html" },
-  "guide.html": { page: "guide", url: SITE + "/guide.html", image: "images/guide-cover.jpg" }
+  "guide.html": { page: "guide", url: SITE + "/guide.html", image: "images/guide-cover.jpg" },
+  "privacy.html": { page: "legal", url: SITE + "/privacy.html" },
+  "cookies.html": { page: "legal", url: SITE + "/cookies.html" }
 };
 const fillId = (html, id, inner) => html.replace(new RegExp(`(id="${id}"[^>]*>)(</(div|nav|header|footer)>)`), `$1${inner}$2`);
 

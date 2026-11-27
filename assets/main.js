@@ -38,7 +38,13 @@
   /* ---------- Analytics: production only ---------- */
   const analyticsHost = location.hostname === "altaruna.ru";
   const counter = 114716597;
-  if (analyticsHost) {
+  let analyticsStarted = false;
+  const consentKey = "alta-runa-analytics-v1";
+  let consent = null;
+  try { consent = localStorage.getItem(consentKey); } catch (_) {}
+  function startAnalytics() {
+    if (!analyticsHost || analyticsStarted || consent !== "yes") return;
+    analyticsStarted = true;
     window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments); };
     window.ym.l = Date.now();
     const tag = document.createElement("script");
@@ -47,8 +53,26 @@
     document.head.appendChild(tag);
     window.ym(counter, "init", {ssr:true, webvisor:false, clickmap:false, accurateTrackBounce:true, trackLinks:true});
   }
+  startAnalytics();
+  const banner = document.createElement("section");
+  banner.className = "cookie-notice";
+  banner.setAttribute("aria-label", "Настройки cookies");
+  banner.hidden = true;
+  banner.innerHTML = `<h2>Использование cookies</h2><p>С вашего согласия мы используем Яндекс Метрику для анализа посещений и улучшения сайта.</p><a href="${R.img("cookies.html")}">Подробнее об использовании cookies</a><div class="cookie-actions"><button type="button" class="btn btn--ghost" data-consent="no">Отклонить</button><button type="button" class="btn btn--accent" data-consent="yes">Принять</button></div>`;
+  body.appendChild(banner);
+  banner.hidden = consent === "yes" || consent === "no";
+  document.querySelectorAll("[data-cookie-settings]").forEach(el => el.addEventListener("click", () => { banner.hidden = false; banner.querySelector("button").focus(); }));
+  banner.addEventListener("click", e => {
+    const choice = e.target.closest("[data-consent]");
+    if (!choice) return;
+    consent = choice.dataset.consent;
+    try { localStorage.setItem(consentKey, consent); } catch (_) {}
+    banner.hidden = true;
+    if (consent === "yes") startAnalytics();
+    else if (analyticsStarted) { window.ym(counter, "destruct"); location.reload(); }
+  });
   function goal(name) {
-    if (analyticsHost && typeof window.ym === "function") window.ym(counter, "reachGoal", name);
+    if (analyticsStarted && consent === "yes" && typeof window.ym === "function") window.ym(counter, "reachGoal", name);
   }
   document.addEventListener("click", (event) => {
     const a = event.target.closest("a[href]");

@@ -89,7 +89,7 @@
         </div>
         <div class="footer__bot">
           <span>© ${new Date().getFullYear()} Alta Runa. Все украшения сделаны вручную.</span>
-          <span class="rune">ᚨᛚᛏᚨ ᚱᚢᚾᚨ</span>
+          <div class="footer-legal"><a href="${u("privacy.html")}">Политика конфиденциальности</a><a href="${u("cookies.html")}">Cookies</a><button type="button" data-cookie-settings>Настройки cookies</button></div><span class="rune">ᚨᛚᛏᚨ ᚱᚢᚾᚨ</span>
         </div>
       </div>`;
     }
