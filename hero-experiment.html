@@ -13,29 +13,30 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232B1D3C'/><text x='50' y='72' font-size='64' text-anchor='middle' fill='%23C9AEE0'>ᚱ</text></svg>">
 <link rel="stylesheet" href="assets/style.css">
 <style>
-.hero--experiment{background:#f4eaf0;color:#2a1f35;overflow:hidden;position:relative;padding:0}
-.hero--experiment .hero__in{width:100%;max-width:none;margin:0;padding:0;display:grid;grid-template-columns:46% 54%;gap:0;min-height:650px;align-items:stretch}
-.hero--experiment .hero__in>div:first-child{padding:clamp(40px,7vw,120px) clamp(28px,5vw,80px);display:flex;flex-direction:column;justify-content:center;position:relative}
-.hero--experiment h1{color:#2a1f35;font-size:clamp(44px,5.2vw,86px);line-height:1.12;margin:24px 0}
+.hero--experiment{position:relative;isolation:isolate;overflow:hidden;background:#e8dce5;color:#2a1f35;padding:0}
+.hero--experiment .hero__in{position:relative;display:flex;align-items:center;min-height:clamp(600px,78vh,850px);padding:70px 0;gap:0}
+.hero--experiment .hero__in>div:first-child{position:relative;z-index:2;width:min(580px,52%);padding:25px 0}
+.hero-jewel{position:absolute;inset:0;margin:0;z-index:-2;overflow:hidden}
+.hero-jewel img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 53%;border-radius:0}
+.hero--experiment:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(249,242,246,.97) 0%,rgba(249,242,246,.88) 26%,rgba(249,242,246,.44) 49%,transparent 75%);pointer-events:none}
+.hero--experiment h1{color:#2a1f35;font-size:clamp(44px,5.5vw,86px);line-height:1.12;margin:24px 0}
 .hero--experiment h1 em{color:#795d88}
-.hero--experiment p{color:#6e6078;max-width:380px}
+.hero--experiment p{color:#514458;max-width:380px}
 .hero--experiment .eyebrow{color:#795d88;letter-spacing:.2em}
 .hero--experiment .hero__cta{margin-top:30px}
 .hero--experiment .btn--accent{background:#392647;color:#fff;border-color:#392647}
 .hero--experiment .btn--ghost{color:#392647;border-color:#a58da9}
-.hero-jewel{margin:0;position:relative;width:100%;min-width:0;min-height:650px;overflow:hidden}
-.hero-jewel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 53%;border-radius:0}
-.hero-jewel:after{content:"ALTA RUNA  /  01";position:absolute;bottom:24px;right:28px;color:#392647;background:#f9f2f6dc;padding:10px 15px;font-size:10px;letter-spacing:.22em}
 .hero-editorial-mark{display:flex;align-items:center;gap:15px;color:#795d88;margin-top:42px;font-size:11px;letter-spacing:.15em;text-transform:uppercase}
 .hero-editorial-mark:before{content:"";width:48px;height:1px;background:#a58da9}
 .hero-editorial-mark .rune{font-size:25px}
-@media(max-width:760px){.hero--experiment .hero__in{grid-template-columns:1fr;min-height:0}.hero--experiment .hero__in>div:first-child{padding:48px 25px 38px}.hero-jewel{min-height:0;aspect-ratio:4/4.5}.hero--experiment h1{font-size:clamp(40px,10vw,64px)}.hero-editorial-mark{margin-top:25px}}
+@media(max-width:760px){.hero--experiment .hero__in{min-height:740px;align-items:flex-end;padding:32px 0}.hero--experiment .hero__in>div:first-child{width:100%;padding:0}.hero--experiment h1{font-size:clamp(40px,10vw,64px)}.hero-jewel img{object-position:center top}.hero--experiment:after{background:linear-gradient(0deg,#f9f2f6 0%,rgba(249,242,246,.94) 29%,rgba(249,242,246,.65) 49%,transparent 76%)}.hero-editorial-mark{margin-top:22px}}
 </style>
 </head>
 <body data-page="home">
 <header id="site-header"></header>
 
 <section class="hero hero--experiment">
+  <figure class="hero-jewel"><img src="images/hero-brand.jpg" alt="Украшение ALTA RUNA и фирменная упаковка"></figure>
   <div class="wrap hero__in">
     <div>
       <span class="eyebrow">Руническая мастерская</span>
@@ -47,7 +48,7 @@
       </div>
       <div class="hero-editorial-mark"><span class="rune">ᛁ</span> Символы. Камни. Смысл.</div>
     </div>
-    <figure class="hero-jewel"><img src="images/hero-brand.jpg" alt="Украшение ALTA RUNA и фирменная упаковка"></figure>
+    
   </div>
 </section>
 
