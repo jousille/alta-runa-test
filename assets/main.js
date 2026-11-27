@@ -39,9 +39,11 @@
   const analyticsHost = location.hostname === "altaruna.ru";
   const counter = 114716597;
   let analyticsStarted = false;
-  const consentKey = "alta-runa-analytics-v1";
+  const consentKey = "alta-runa-analytics-v2";
+  const consentVersion = "2026-11-27";
+  const consentDuration = 365 * 24 * 60 * 60 * 1000;
   let consent = null;
-  try { consent = localStorage.getItem(consentKey); } catch (_) {}
+  try { const saved = JSON.parse(localStorage.getItem(consentKey)); if (saved && saved.version === consentVersion && saved.expiresAt > Date.now() && ["yes","no"].includes(saved.choice)) consent = saved.choice; } catch (_) {}
   function startAnalytics() {
     if (!analyticsHost || analyticsStarted || consent !== "yes") return;
     analyticsStarted = true;
@@ -58,15 +60,15 @@
   banner.className = "cookie-notice";
   banner.setAttribute("aria-label", "Настройки cookies");
   banner.hidden = true;
-  banner.innerHTML = `<h2>Использование cookies</h2><p>С вашего согласия мы используем Яндекс Метрику для анализа посещений и улучшения сайта.</p><a href="${R.img("privacy.html#cookies")}">Политика конфиденциальности и cookies</a><div class="cookie-actions"><button type="button" class="btn btn--ghost" data-consent="no">Отклонить</button><button type="button" class="btn btn--accent" data-consent="yes">Принять</button></div>`;
+  banner.innerHTML = `<h2>Использование cookies</h2><p>С вашего согласия мы используем Яндекс Метрику для анализа посещений и улучшения сайта. Нажимая «Принять», вы даёте согласие на обработку данных для аналитики. Отказ не ограничивает доступ к сайту.</p><a href="${R.img("consent.html")}">Согласие на обработку персональных данных</a><br><a href="${R.img("privacy.html#cookies")}">Политика конфиденциальности и cookies</a><div class="cookie-actions"><button type="button" class="btn btn--ghost" data-consent="no">Отклонить</button><button type="button" class="btn btn--ghost" data-consent="yes">Принять</button></div>`;
   body.appendChild(banner);
-  banner.hidden = consent === "yes" || consent === "no";
+  banner.hidden = page === "consent" || consent === "yes" || consent === "no";
   document.querySelectorAll("[data-cookie-settings]").forEach(el => el.addEventListener("click", () => { banner.hidden = false; banner.querySelector("button").focus(); }));
   banner.addEventListener("click", e => {
     const choice = e.target.closest("[data-consent]");
     if (!choice) return;
     consent = choice.dataset.consent;
-    try { localStorage.setItem(consentKey, consent); } catch (_) {}
+    try { const now = Date.now(); localStorage.setItem(consentKey, JSON.stringify({choice:consent,version:consentVersion,decidedAt:now,expiresAt:now+consentDuration})); } catch (_) {}
     banner.hidden = true;
     if (consent === "yes") startAnalytics();
     else if (analyticsStarted) { window.ym(counter, "destruct"); location.reload(); }
